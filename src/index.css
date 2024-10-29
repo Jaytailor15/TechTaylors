@@ -1,0 +1,310 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 50% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222 47% 11%;
+    --radius: 0.75rem;
+
+    /* Custom gradient colors */
+    --gradient-1: 222 47% 11%;
+    --gradient-2: 221 83% 53%;
+    --gradient-3: 199 89% 48%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Custom gradient colors for dark mode */
+    --gradient-1: 210 40% 98%;
+    --gradient-2: 199 89% 48%;
+    --gradient-3: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--gradient-1)),
+    hsl(var(--gradient-2)),
+    hsl(var(--gradient-3))
+  );
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.15);
+}
+
+/* Responsive container */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Mouse trail effect */
+.mouse-trail {
+  pointer-events: none;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: hsl(var(--gradient-2) / 0.1);
+  transition: transform 0.1s;
+  z-index: 9999;
+}
+
+/* Enhanced Gradient Checkerboard Patterns */
+.gradient-checks-light {
+  background: 
+    linear-gradient(45deg, 
+      hsl(var(--gradient-2) / 0.08) 25%, 
+      transparent 25%,
+      transparent 75%, 
+      hsl(var(--gradient-2) / 0.08) 75%),
+    linear-gradient(45deg, 
+      hsl(var(--gradient-2) / 0.08) 25%, 
+      transparent 25%,
+      transparent 75%, 
+      hsl(var(--gradient-2) / 0.08) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  animation: subtleShift 15s linear infinite;
+}
+
+.gradient-checks-dark {
+  background: 
+    linear-gradient(45deg, 
+      hsl(var(--gradient-1) / 0.15) 25%, 
+      transparent 25%,
+      transparent 75%, 
+      hsl(var(--gradient-1) / 0.15) 75%),
+    linear-gradient(45deg, 
+      hsl(var(--gradient-1) / 0.15) 25%, 
+      transparent 25%,
+      transparent 75%, 
+      hsl(var(--gradient-1) / 0.15) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  animation: subtleShift 15s linear infinite;
+}
+
+@keyframes subtleShift {
+  0% {
+    background-position: 0 0, 12px 12px;
+  }
+  100% {
+    background-position: 24px 24px, 36px 36px;
+  }
+}
+
+/* Enhanced Card Styles */
+.card {
+  @apply relative overflow-hidden rounded-xl border p-6 transition-all duration-300;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--card) / 0.8),
+    hsl(var(--card) / 0.95)
+  );
+  backdrop-filter: blur(8px);
+  box-shadow: 
+    0 4px 6px -1px rgb(0 0 0 / 0.05),
+    0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--gradient-1) / 0.1),
+    hsl(var(--gradient-2) / 0.1)
+  );
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-header {
+  @apply mb-4 flex items-center justify-between;
+}
+
+.card-title {
+  @apply text-xl font-semibold tracking-tight;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--gradient-1)),
+    hsl(var(--gradient-2))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientFlow 8s ease infinite;
+}
+
+.card-description {
+  @apply text-sm text-muted-foreground leading-relaxed;
+}
+
+.card-footer {
+  @apply mt-6 flex items-center justify-between pt-4 border-t;
+}
+
+.card-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    hsl(var(--gradient-2) / 0.1) 40%,
+    hsl(var(--gradient-3) / 0.1) 60%,
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shine 6s infinite;
+  z-index: 2;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  20%, 100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Card hover effects */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 24px -8px hsl(var(--gradient-1) / 0.15),
+    0 4px 8px -4px hsl(var(--gradient-2) / 0.15);
+}
+
+.dark .card {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--card) / 0.9),
+    hsl(var(--card) / 0.95)
+  );
+}
