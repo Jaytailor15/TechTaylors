@@ -1,23 +1,29 @@
-import { useEffect, useState } from 'react';
-import {
-  Moon, Sun, Smartphone, Globe2, Megaphone, Palette, 
-  Code2, Cpu, MessageCircle, Mail, Rocket, 
-  CheckCircle2, Clock, Users, Zap, Shield, Award
-} from 'lucide-react';
+import { MouseTrail } from '@/components/MouseTrail';
+import { ProjectShowcase } from '@/components/ProjectShowcase';
+import { ServiceCard } from '@/components/ServiceCard';
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { ServiceCard } from '@/components/ServiceCard';
-import { ProjectShowcase } from '@/components/ProjectShowcase';
-import { MouseTrail } from '@/components/MouseTrail';
+import {
+  Cpu,
+  Globe2,
+  Mail,
+  MessageCircle,
+  Moon,
+  Rocket,
+  Shield,
+  Smartphone,
+  Sun
+} from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const services = [
   {
